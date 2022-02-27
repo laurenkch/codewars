@@ -21,3 +21,38 @@ def narcissistic(value):
         total += int(num) ** num_length
     return total == value
 
+# //////////////////////////////////////////////////////////2/26/22
+
+# Write a function that accepts an array of 10 integers(between 0 and 9), that returns a string of those numbers in the form of a phone number.
+
+# Example
+# # => returns "(123) 456-7890"
+# create_phone_number([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])
+# The returned format must be correct in order to complete this challenge.
+# Don't forget the space after the closing parentheses!
+
+
+def create_phone_number(n):
+    s = "".join((str(element) for element in n))
+    return f'({s[:3]}) {s[3:6]}-{s[6:]}'
+
+
+# Usually when you buy something, you're asked whether your credit card number, phone number or answer to your most secret question is still correct. However, since someone could look over your shoulder, you don't want that shown on your screen. Instead, we mask it.
+
+# Your task is to write a function maskify, which changes all but the last four characters into '#'.
+
+# Examples
+# maskify("4556364607935616") == "############5616"
+# maskify("64607935616") == "#######5616"
+# maskify("1") == "1"
+# maskify("") == ""
+
+# # "What was the name of your first pet?"
+# maskify("Skippy") == "##ippy"
+# maskify("Nananananananananananananananana Batman!") == "####################################man!"
+
+
+def maskify(cc):
+    beginning = '#' * len(cc[0:-4])
+    end = cc[-4:]
+    return beginning + end
